@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >  
+<generatorConfiguration>  
+    <!-- 数据库驱动包位置 -->  
+    <classPathEntry  
+        location="D:\STS\mybatis-generator-core-1.3.5\lib\mysql-connector-java-5.1.38.jar"/>
+    <context id="context1">  
+        <commentGenerator>  
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
+            <property name="suppressAllComments" value="true"/>  
+        </commentGenerator>  
+        <!-- 数据库链接URL、用户名、密码 -->  
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://172.18.17.16:3306/datastation"
+                        userId="root"
+                        password="123456"/> 
+        <!-- 生成模型的包名和位置 -->  
+        <javaModelGenerator targetPackage="com.ppdao.mysql.model" targetProject="example-of-mybgenerator/src/main/java" />
+        <!-- 生成的映射文件报名和位置 -->  
+        <sqlMapGenerator targetPackage="mysqlMapper" targetProject="example-of-mybgenerator/src/main/resources" />
+        <!-- 生成DAO的包名和位置 -->  
+        <javaClientGenerator targetPackage="com.ppdao.mysql.mapper" targetProject="example-of-mybgenerator/src/main/java" type="XMLMAPPER" />
+        <!-- 要生成的那些表(更改tableName 和domainObjectName 就可以了) -->  
+       <!--  <table schema="ssm1" tableName="FILMINFO" domainObjectName="FilmInfo" enableCountByExample="false" enableUpdateByExample="false"
+            enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">  
+            <columnOverride column="FILMID" property="FILMID" />  
+            <columnOverride column="FILMNAME" property="FILMNAME" />  
+            <columnOverride column="TYPEID" property="TYPEID" />  
+            <columnOverride column="ACTOR" property="ACTOR" />  
+            <columnOverride column="DIRECTOR" property="DIRECTOR" />  
+            <columnOverride column="TICKETPRICE" property="TICKETPRICE" />  
+        </table> 
+        
+        <table tableName="phone_basic_info" domainObjectName="PhoneBasicInfo" enableCountByExample="false" enableUpdateByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">  
+        </table>
+        -->
+        <table tableName="data_station_app_keys" domainObjectName="DataStationAppKeys" enableCountByExample="false" enableUpdateByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">  
+        </table>
+    </context>  
+</generatorConfiguration>  

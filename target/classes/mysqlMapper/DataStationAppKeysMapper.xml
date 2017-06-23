@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ppdao.mysql.mapper.DataStationAppKeysMapper">
+  <resultMap id="BaseResultMap" type="com.ppdao.mysql.model.DataStationAppKeys">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="appname" jdbcType="VARCHAR" property="appname" />
+    <result column="servicename" jdbcType="VARCHAR" property="servicename" />
+    <result column="creationdate" jdbcType="TIMESTAMP" property="creationdate" />
+    <result column="appkey" jdbcType="VARCHAR" property="appkey" />
+    <result column="appsecret" jdbcType="VARCHAR" property="appsecret" />
+    <result column="inserttime" jdbcType="TIMESTAMP" property="inserttime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="isactive" jdbcType="BIT" property="isactive" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, appname, servicename, creationdate, appkey, appsecret, inserttime, updatetime, 
+    isactive
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from data_station_app_keys
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from data_station_app_keys
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ppdao.mysql.model.DataStationAppKeys">
+    insert into data_station_app_keys (id, appname, servicename, 
+      creationdate, appkey, appsecret, 
+      inserttime, updatetime, isactive
+      )
+    values (#{id,jdbcType=INTEGER}, #{appname,jdbcType=VARCHAR}, #{servicename,jdbcType=VARCHAR}, 
+      #{creationdate,jdbcType=TIMESTAMP}, #{appkey,jdbcType=VARCHAR}, #{appsecret,jdbcType=VARCHAR}, 
+      #{inserttime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{isactive,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ppdao.mysql.model.DataStationAppKeys">
+    insert into data_station_app_keys
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appname != null">
+        appname,
+      </if>
+      <if test="servicename != null">
+        servicename,
+      </if>
+      <if test="creationdate != null">
+        creationdate,
+      </if>
+      <if test="appkey != null">
+        appkey,
+      </if>
+      <if test="appsecret != null">
+        appsecret,
+      </if>
+      <if test="inserttime != null">
+        inserttime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="isactive != null">
+        isactive,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="appname != null">
+        #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="servicename != null">
+        #{servicename,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null">
+        #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appkey != null">
+        #{appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="appsecret != null">
+        #{appsecret,jdbcType=VARCHAR},
+      </if>
+      <if test="inserttime != null">
+        #{inserttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isactive != null">
+        #{isactive,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ppdao.mysql.model.DataStationAppKeys">
+    update data_station_app_keys
+    <set>
+      <if test="appname != null">
+        appname = #{appname,jdbcType=VARCHAR},
+      </if>
+      <if test="servicename != null">
+        servicename = #{servicename,jdbcType=VARCHAR},
+      </if>
+      <if test="creationdate != null">
+        creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appkey != null">
+        appkey = #{appkey,jdbcType=VARCHAR},
+      </if>
+      <if test="appsecret != null">
+        appsecret = #{appsecret,jdbcType=VARCHAR},
+      </if>
+      <if test="inserttime != null">
+        inserttime = #{inserttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isactive != null">
+        isactive = #{isactive,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ppdao.mysql.model.DataStationAppKeys">
+    update data_station_app_keys
+    set appname = #{appname,jdbcType=VARCHAR},
+      servicename = #{servicename,jdbcType=VARCHAR},
+      creationdate = #{creationdate,jdbcType=TIMESTAMP},
+      appkey = #{appkey,jdbcType=VARCHAR},
+      appsecret = #{appsecret,jdbcType=VARCHAR},
+      inserttime = #{inserttime,jdbcType=TIMESTAMP},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      isactive = #{isactive,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
